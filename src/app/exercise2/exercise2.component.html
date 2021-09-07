@@ -1,0 +1,29 @@
+<h4><i>Exercise 2</i></h4><br>
+<div class="container-fluid">
+    <div class="col-md-12">
+   Item Name: <input type="text" class="form-control"  [(ngModel)]="itemData"><br>
+
+   Description: <input type="text" class="form-control"  [(ngModel)]="descriptionData"><br>
+
+   Price: <input type="number" class="form-control" min="0"  [(ngModel)]="priceData"><br>
+
+   <button class="btn btn-primary" (click)="getData(); this.itemData=''; this.descriptionData=''; this.priceData=''">Add Item</button><br><br>
+    </div>
+</div>
+
+<table class="table table-hover" [hidden]="hideTable">
+    <thead>
+      <tr>
+        <th scope="col">Item Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let display of data" [ngClass]="{'bg-danger text-gray':display.Price>=1000}" >
+        <td>{{display.Item}}</td>
+        <td>{{display.Description}}</td>
+        <td>{{display.Price}}</td>
+      </tr>
+    </tbody>
+  </table>
